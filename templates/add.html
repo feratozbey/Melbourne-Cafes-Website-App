@@ -1,0 +1,17 @@
+{% include 'header.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<header class="masthead" style="height: 180vh"><br>
+  <div class="container">
+    <h1 style="color: white; margin: 2rem 5rem;">Add a new cafe.</h1>
+    <div class="col-lg-10 col-md-10 mx-auto">
+      <div class="col-sm-12 col-md-8 btn-light" style="color:white;">
+
+        <!-- Bootstrap quickform. Values transferred from add_cafe function -->
+        {{ wtf.quick_form(form, novalidate=True) }}
+      </div>
+    </div>
+  </div>
+</header>
+{% endblock %}

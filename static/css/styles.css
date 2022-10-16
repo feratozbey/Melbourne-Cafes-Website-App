@@ -1,0 +1,59 @@
+
+/*      Classes(Alphabetical order)       */
+.card {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.copyright {
+    height: 10vh;
+    width: 100vw;
+    max-width: 100%;
+    padding: 0.1rem 0;
+    font-size: 0.5rem;
+}
+
+.div2 {
+    background-color: #e1e4e6;
+    margin: 0;
+    max-width: 100%;
+}
+
+.icon {
+    font-size: 1.5rem;
+    margin: 0.5rem;
+    color: gray;
+}
+
+a.icon {
+    color: black;
+}
+
+a.icon:hover {
+    color: blue;
+}
+
+.masthead {
+    background-image: url('../images/cafe5.jpg');
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    display: block;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: static;
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    padding: 2% 12% 0 10%;
+    position: absolute;
+    width: 100vw;
+    max-width: 100%;
+   }
+
+.subheading {
+    color: white;
+}

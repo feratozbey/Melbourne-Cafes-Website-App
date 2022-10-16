@@ -1,0 +1,51 @@
+{% include "header.html" %}
+{% block content %}
+
+<!-- Page introduction -->
+<header class="masthead">
+    <div class="col-lg-9 col-md-10 mx-auto">
+        <h1 style="color: white">Welcome to Melbourne Cafes</h1>
+        <span class="subheading">Enjoy your coffee!</span>
+    </div>
+</header>
+
+<!-- Page content -->
+<div class="div2 row justify-content-center">
+    {% for cafe in cafes %}
+        {% if cafe[0] != 'name': %}
+            <div class="col-lg-4 d-flex justify-content-center mt-5 align-items-stretch">
+                <div class="card" style="width: 16rem;">
+                    <!-- Cafe's Image -->
+                    <img class="card-img-top" src="{{ cafe[2] }}" alt="Cafe-Img">
+                    <div class="card-body">
+                        <!-- Cafe's Name -->
+                        <h5 class="card-title">{{ cafe[0] }}</h5>
+                        <!-- Suburb -->
+                        <p class="card-text">{{ cafe[3] }}</p>
+                        <!-- Price -->
+                        <i class="icon fa-solid fa-magnifying-glass-dollar"></i><a>{{ cafe[4] }}</a><br>
+                        <!-- Phone Number -->
+                        {% if cafe[5] != '': %}
+                            <i class="icon fa-solid fa-square-phone"></i><a>+61 {{ cafe[5] }}</a><br>
+                        {% endif %}
+                        <!-- Location -->
+                        <a class="icon fa-solid fa-map-location-dot" href="{{ cafe[1] }}" target="_blank"></a>
+                        <!-- Website -->
+                        {% if cafe[6] != '': %}
+                            <a class="icon fa-solid fa-globe" href="{{ cafe[6] }}" target="_blank"></a>
+                        {% endif %}
+                        <!-- Menu -->
+                        {% if cafe[7] != '': %}
+                            <a class="icon fa-solid fa-book" href="{{ cafe[7] }}" target="_blank"></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div class="copyright">
+    <p style="margin: 4vh 40vw; color: gray ">Copyright © 2022 Ferat Ozbey</p>
+</div>
+{% endblock %}
