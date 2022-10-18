@@ -12,7 +12,7 @@
 <!-- Page content -->
 <div class="div2 row justify-content-center">
     {% for cafe in cafes %}
-        {% if cafe[0] != 'name': %}
+        {% if cafe[0] != 'name' and cafe != []: %}
             <div class="col-lg-4 d-flex justify-content-center mt-5 align-items-stretch">
                 <div class="card" style="width: 16rem;">
                     <!-- Cafe's Image -->

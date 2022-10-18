@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from flask_bootstrap import Bootstrap
 from wtforms.validators import DataRequired, URL
-import csv
+from csv import writer, reader
 
 # Sets up app and relates with Bootstrap to use a quickform
 app = Flask(__name__)
@@ -27,8 +27,8 @@ class CafeForm(FlaskForm):
 # Home page route. Reads the data in csv file and transfers it to html file as an array.
 @app.route('/')
 def home():
-    with open('cafe-data2.csv', newline='', encoding="utf8") as csv_file:
-        csv_data = csv.reader(csv_file, delimiter=',')
+    with open('cafe-data2.csv', newline='', encoding="ISO-8859-1") as csv_file:
+        csv_data = reader(csv_file, delimiter=',')
         list_of_rows = []
         for row in csv_data:
             list_of_rows.append(row)
@@ -42,14 +42,16 @@ def add_cafe():
     form = CafeForm()
     if form.validate_on_submit():
         with open("cafe-data2.csv", mode="a") as csv_file:
-            csv_file.write(f"\n{form.name.data},"
-                           f"{form.google_maps_url.data},"
-                           f"{form.img_url.data},"
-                           f"{form.suburb.data},"
-                           f"{form.pricey.data},"
-                           f"{form.phone_number.data},"
-                           f"{form.website.data},"
-                           f"{form.menu.data}")
+            csv_object = writer(csv_file)
+            csv_object.writerow([form.name.data, form.google_maps_url.data, form.img_url.data, form.suburb.data, form.pricey.data, form.phone_number.data, form.website.data, form.menu.data])
+            # csv_file.write(f"\n{form.name.data},"
+            #                f"{form.google_maps_url.data},"
+            #                f"{form.img_url.data},"
+            #                f"{form.suburb.data},"
+            #                f"{form.pricey.data},"
+            #                f"{form.phone_number.data},"
+            #                f"{form.website.data},"
+            #                f"{form.menu.data}")
         return redirect(url_for('home'))
     return render_template('add.html', form=form)
 
