@@ -1,4 +1,7 @@
-
+.btn {
+    background-color: white;
+    margin-top: 1em;
+}
 /*      Classes(Alphabetical order)       */
 .card {
     text-align: center;
@@ -22,11 +25,11 @@
 .icon {
     font-size: 1.5rem;
     margin: 0.5rem;
-    color: gray;
+    color: pink;
 }
 
 a.icon {
-    color: black;
+    color: skyblue;
 }
 
 a.icon:hover {
